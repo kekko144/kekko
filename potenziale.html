@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Energia Potenziale</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #fff; }
+    h1 { color: #0033cc; }
+    .quiz, .esercizio {
+      background: #eef3ff;
+      padding: 10px;
+      margin-top: 20px;
+      border-left: 4px solid #0033cc;
+    }
+    .risultato { margin-top: 10px; font-weight: bold; }
+    a { text-decoration: none; color: #0033cc; }
+  </style>
+</head>
+<body>
+  <a href="index.html">&larr; Torna al menu</a>
+  <h1>Energia Potenziale</h1>
+  <p>Dipende dalla posizione e altezza rispetto al suolo.</p>
+  <p>Formula:</p>
+  <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <mrow>
+      <mi>E</mi><mi>p</mi><mo>=</mo><mi>m</mi><mo>&#8290;</mo><mi>g</mi><mo>&#8290;</mo><mi>h</mi>
+    </mrow>
+  </math>
+
+  <div class="quiz">
+    <p><strong>Quiz:</strong> Massa 2kg, altezza 5m. Qual è Ep? (g=9.8)</p>
+    <button onclick="controlla(98)">98 J</button>
+    <button onclick="controlla(50)">50 J</button>
+    <button onclick="controlla(100)">100 J</button>
+    <p id="risultatoQuiz" class="risultato"></p>
+  </div>
+
+  <div class="esercizio">
+    <p><strong>Calcola energia potenziale:</strong></p>
+    <input type="number" id="massa" placeholder="Massa (kg)">
+    <input type="number" id="altezza" placeholder="Altezza (m)">
+    <button onclick="calcola()">Calcola</button>
+    <p id="risultato" class="risultato"></p>
+  </div>
+
+  <script>
+    function controlla(valore) {
+      const testo = (valore === 98) ? "Corretto!" : "Sbagliato!";
+      document.getElementById("risultatoQuiz").innerText = testo;
+    }
+
+    function calcola() {
+      const m = parseFloat(document.getElementById("massa").value);
+      const h = parseFloat(document.getElementById("altezza").value);
+      const ep = m * 9.81 * h;
+      document.getElementById("risultato").innerText = `Ep = ${ep.toFixed(2)} J`;
+    }
+  </script>
+</body>
+</html>

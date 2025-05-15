@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Energia Cinetica</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #fff; }
+    h1 { color: #0033cc; }
+    .quiz, .esercizio {
+      background: #eef3ff;
+      padding: 10px;
+      margin-top: 20px;
+      border-left: 4px solid #0033cc;
+    }
+    .risultato { margin-top: 10px; font-weight: bold; }
+    a { text-decoration: none; color: #0033cc; }
+  </style>
+</head>
+<body>
+  <a href="index.html">&larr; Torna al menu</a>
+  <h1>Energia Cinetica</h1>
+  <p>L'energia cinetica è l'energia di un corpo in movimento.</p>
+  <p>Formula: <strong>Ec = ½ · m · v²</strong></p>
+
+  <div class="quiz">
+    <p><strong>Quiz:</strong> Un corpo di massa 2kg si muove a 3 m/s. Qual è Ec?</p>
+    <button onclick="controlla(9)">9 J</button>
+    <button onclick="controlla(12)">12 J</button>
+    <button onclick="controlla(18)">18 J</button>
+    <p id="risultatoQuiz" class="risultato"></p>
+  </div>
+
+  <div class="esercizio">
+    <p><strong>Calcola energia cinetica:</strong></p>
+    <input type="number" id="massa" placeholder="Massa (kg)">
+    <input type="number" id="velocita" placeholder="Velocità (m/s)">
+    <button onclick="calcola()">Calcola</button>
+    <p id="risultato" class="risultato"></p>
+  </div>
+
+  <script>
+    function controlla(valore) {
+      const testo = (valore === 9) ? "Corretto!" : "Sbagliato!";
+      document.getElementById("risultatoQuiz").innerText = testo;
+    }
+
+    function calcola() {
+      const m = parseFloat(document.getElementById("massa").value);
+      const v = parseFloat(document.getElementById("velocita").value);
+      const ec = 0.5 * m * v * v;
+      document.getElementById("risultato").innerText = `Ec = ${ec.toFixed(2)} J`;
+    }
+  </script>
+</body>
+</html>

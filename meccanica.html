@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <title>Energia Meccanica</title>
+  <style>
+    body { font-family: Arial; padding: 20px; background: #fff; }
+    h1 { color: #0033cc; }
+    .esercizio {
+      background: #eef3ff;
+      padding: 10px;
+      margin-top: 20px;
+      border-left: 4px solid #0033cc;
+    }
+    .risultato { margin-top: 10px; font-weight: bold; }
+    a { text-decoration: none; color: #0033cc; }
+  </style>
+</head>
+<body>
+  <a href="index.html">&larr; Torna al menu</a>
+  <h1>Energia Meccanica</h1>
+  <p>Somma di energia cinetica e potenziale:</p>
+  <math xmlns="http://www.w3.org/1998/Math/MathML">
+    <mrow><mi>E</mi><mi>m</mi><mo>=</mo><mi>E</mi><mi>c</mi><mo>+</mo><mi>E</mi><mi>p</mi></mrow>
+  </math>
+
+  <div class="esercizio">
+    <p><strong>Calcola energia meccanica:</strong></p>
+    <input type="number" id="ec" placeholder="Energia Cinetica (J)">
+    <input type="number" id="ep" placeholder="Energia Potenziale (J)">
+    <button onclick="calcola()">Calcola</button>
+    <p id="risultato" class="risultato"></p>
+  </div>
+
+  <script>
+    function calcola() {
+      const ec = parseFloat(document.getElementById("ec").value);
+      const ep = parseFloat(document.getElementById("ep").value);
+      const em = ec + ep;
+      document.getElementById("risultato").innerText = `Em = ${em.toFixed(2)} J`;
+    }
+  </script>
+</body>
+</html>
